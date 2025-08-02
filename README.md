@@ -36,11 +36,8 @@ SmartWisataChain is a WordPress plugin that enables dual-mode (on-chain/off-chai
 ## 🤝 Contributing
 We welcome contributions! To get started:
 
-git clone https://github.com/ELPEEF/swc-docs.git
-npm install
-npm run start
+Read our Contribution Guide on https://github.com/ELPEEF/swc-docs.git
 
-Read our Contribution Guide
 or open an issue on GitHub Issues
 
 ## 🧾 License

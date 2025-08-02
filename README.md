@@ -53,4 +53,5 @@ Built with 🔗 by ELPEEF Dev Team
 
 ---
 
-## 🙌 You can support SmartWisataChain [here](./README-support.md) to help us keep building awesome tools.
+## 🙌 Support
+You can support SmartWisataChain [here](./README-support.md) to help us keep building awesome tools.

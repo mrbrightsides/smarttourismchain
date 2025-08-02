@@ -30,23 +30,22 @@ SmartWisataChain is a WordPress plugin that enables dual-mode (on-chain/off-chai
 - Paste the ABI JSON
 - Put them into form token or booking mode or both
 5. Use the shortcode below on any page or post:
-  [[smartwisata_booking]]
+  [smartwisata_booking]
 6. Connect MetaMask in frontend and start testing!
 
 ## 🤝 Contributing
 We welcome contributions! To get started:
 
-bash
-Copy
-Edit
 git clone https://github.com/ELPEEF/swc-docs.git
 npm install
 npm run start
+
 Read our Contribution Guide
 or open an issue on GitHub Issues
 
 ## 🧾 License
 This project is licensed under the GNU General Public License v3.0.
+
 Use it, improve it, and share it freely. ❤️
 
-Built with 🔗 by RANTAI — Riset Amanah Teknologi dan Integrasi
+Built with 🔗 by ELPEEF Dev Team

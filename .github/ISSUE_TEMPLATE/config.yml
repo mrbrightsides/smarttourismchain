@@ -1,18 +1,17 @@
-blank_issues_enabled: false 
+blank_issues_enabled: false
 
 contact_links:
-name: ✨ Tanya Jawab & Diskusi 
-url: https://github.com/ELPEEF/smartwisatachain/discussions 
-about: Tempat untuk ngobrol santai, tanya teknis, atau diskusi roadmap bareng dev & kontributor
-
+  - name: 💬 Tanya Jawab & Diskusi
+    url: https://github.com/ELPEEF/smartwisatachain/discussions
+    about: Tempat untuk ngobrol santai, tanya teknis, atau diskusi roadmap bareng dev & kontributor
 
 issue_templates:
-name: 🐞 Bug Report 
-description: Laporkan masalah/error yang kamu temukan saat menggunakan plugin SmartWisataChain 
-labels: [bug] 
-file: bug_report.md
+  - name: 🐛 Bug Report
+    description: Laporkan masalah/error yang kamu temukan saat menggunakan plugin SmartWisataChain
+    labels: [bug]
+    file: bug_report.md
 
-name: 🌟 Feature Request 
-description: Usulkan fitur baru atau perbaikan yang ingin kamu lihat ke depan 
-labels: [enhancement] 
-file: feature_request.md
+  - name: 🚀 Feature Request
+    description: Usulkan fitur baru atau perbaikan yang ingin kamu lihat ke depan
+    labels: [enhancement]
+    file: feature_request.md

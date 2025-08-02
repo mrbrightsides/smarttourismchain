@@ -9,7 +9,7 @@
 SmartWisataChain is a WordPress plugin that enables dual-mode (on-chain/off-chain) booking transactions using Ethereum smart contracts and MetaMask. It’s built for real-world CMS systems like WordPress and WooCommerce to empower decentralized services for tourism, e-commerce, and more.
 
 🔗 Smart Contract Repo: [smarttourism (Solidity)](https://github.com/mrbrightsides/smarttourism)  
-📘 Documentation: [docs.smartourism.elpeef.com](https://docs.smartourism.elpeef.com)
+📘 Documentation: [smartourism.elpeef.com/docs](https://smartourism.elpeef.com/docs)
 
 ---
 

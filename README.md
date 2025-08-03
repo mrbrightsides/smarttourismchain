@@ -171,6 +171,8 @@ Adapted from modern website development flow, this roadmap documents the key sta
 
 **📌 Output:** Plugin v1.x, updated roadmap, community engagement
 
+<img width="588" height="881" alt="image" src="https://github.com/user-attachments/assets/37f7b0cb-b801-4d10-913a-7b101930a867" />
+
 ---
 
 > This adapted roadmap is aligned with Design Science Research Methodology (DSRM), ensuring that every development stage contributes to a rigorous, problem-driven, and impact-oriented innovation process.

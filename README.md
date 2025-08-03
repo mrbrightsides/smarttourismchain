@@ -102,7 +102,7 @@ Adapted from modern website development flow, this roadmap documents the key sta
 
 ---
 
-## ## 4. 🎨 Design
+## 4. 🎨 Design
 
 - Designing the UI for reservation and admin panels
 - Creating landing page and token logo

@@ -3,7 +3,7 @@
  * Plugin Name: SmartWisataChain
  * Plugin URI: https://smartourism.elpeef.com/
  * Description: Plugin open-source untuk transaksi wisata digital berbasis smart contract (versi free).
- * Version: 1.0
+ * Version: 1.1
  * Author: Elpeef Dev Team
  * Author URI: https://elpeef.com
  * License: GPLv3
@@ -14,35 +14,51 @@
  * Requires PHP: 7.4
  */
 
-// === Enqueue JS (ethers + QR + main) ===
-function swc_enqueue_scripts() {
-    wp_enqueue_script(
-        'ethers-js',
-        'https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js',
+// === Enqueue JS (ethers + QR + main hybrid) ===
+function swc_enqueue_assets() {
+    if (is_page('simulasi')) {
+        wp_enqueue_script(
+            'ethers-js',
+            'https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js',
+            array(),
+            null,
+            true
+        );
+
+        wp_enqueue_script(
+        'qrcode-generator',
+        'https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js',
         array(),
         null,
         true
     );
 
-    wp_enqueue_script(
-  'qrcode-js',
-  'https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js',
-  array(),
-  null,
-  true
-);
+        wp_enqueue_script(
+            'swc-booking',
+            plugins_url('js/swc-booking.js', __FILE__),
+            array('jquery', 'ethers-js'),
+            '1.1',
+            true
+        );
 
+        wp_enqueue_script(
+            'swc_ajax',
+            plugin_dir_url(__FILE__) . 'js/swc_ajax.js',
+            array('jquery'),
+            null,
+            true
+        );
+        
+        wp_enqueue_script(
+            'swc-generate-token',
+            plugin_dir_url(__FILE__) . 'js/generate-token.js',
+            array('ethers-js'),
+            filemtime(plugin_dir_path(__FILE__) . 'js/generate-token.js'),
+            true
+        );
 
-    wp_enqueue_script(
-    'swc-main',
-    plugin_dir_url(__FILE__) . 'swc-main.js?ver=' . time(), // cache buster
-    array('ethers-js'),
-    null,
-    true
-);
-
-
-    wp_localize_script('swc-main', 'swc_ajax', array(
+       // Optional: Kalau swc-booking juga butuh data contract
+        wp_localize_script('swc-booking', 'swc_ajax', array(
     'ajax_url' => admin_url('admin-ajax.php'),
     'contract_address' => get_option('swc_contract_address'),
     'contract_abi' => get_option('swc_contract_abi'),
@@ -50,8 +66,11 @@ function swc_enqueue_scripts() {
     'booking_contract_abi' => get_option('swc_booking_contract_abi'),
 ));
 
+
+    }
 }
-add_action('wp_enqueue_scripts', 'swc_enqueue_scripts');
+add_action('wp_enqueue_scripts', 'swc_enqueue_assets');
+
 
 // === Register Booking Post Type ===
 function swc_register_post_type() {
@@ -69,87 +88,21 @@ function swc_register_post_type() {
 }
 add_action('init', 'swc_register_post_type');
 
-// === Shortcode Booking Form ===
+// === Shortcode untuk Menampilkan Form ===
 function swc_booking_form() {
-    ob_start(); ?>
-    <form id="swc-booking-form">
-        <label>Nama:</label><br>
-        <input type="text" id="nama" name="nama" required>
-        <label>Hotel:</label><br>
-        <input type="text" id="hotel" name="hotel" required><br><br>
-
-        <label>Tanggal:</label><br>
-        <input type="date" name="tanggal" required><br><br>
-
-        <label>Metode Pembayaran:</label><br>
-        <input type="radio" name="payment" value="offchain" checked> Off-Chain
-        <input type="radio" name="payment" value="onchain"> On-Chain (Blockchain)<br><br>
-
-        <button type="submit">Kirim</button>
-    </form>
-    <div id="swc-result"></div>
-    <?php
+    ob_start();
+    include plugin_dir_path(__FILE__) . 'views/form-booking.php';
     return ob_get_clean();
 }
 add_shortcode('smartwisata_booking', 'swc_booking_form');
 
-// === Off-Chain Booking Handler ===
-function swc_handle_offchain() {
-    $nama = sanitize_text_field($_POST['nama'] ?? '');
-    $tanggal = sanitize_text_field($_POST['tanggal'] ?? '');
+// Fungsi swc_handle_offchain_booking() dipindah ke includes/swc_ajax.php
 
-    if (!$nama || !$tanggal) {
-        wp_send_json_error('Data tidak lengkap.');
-        return;
-    }
 
-    $post_id = wp_insert_post(array(
-        'post_title' => "$nama - $tanggal",
-        'post_type' => 'swc_booking',
-        'post_status' => 'publish',
-    ));
 
-    if ($post_id) {
-        wp_send_json_success('Booking disimpan secara off-chain.');
-    } else {
-        wp_send_json_error('Gagal menyimpan booking.');
-    }
-}
-add_action('wp_ajax_swc_offchain', 'swc_handle_offchain');
-add_action('wp_ajax_nopriv_swc_offchain', 'swc_handle_offchain');
 
-// === On-Chain Booking Handler ===
-function swc_handle_onchain() {
-    $nama = sanitize_text_field($_POST['nama'] ?? '');
-    $tanggal = sanitize_text_field($_POST['tanggal'] ?? '');
-    $txhash = sanitize_text_field($_POST['txhash'] ?? '');
 
-    if (!$nama || !$tanggal || !$txhash) {
-        wp_send_json_error('Data tidak lengkap untuk on-chain.');
-        return;
-    }
-
-    $post_id = wp_insert_post(array(
-        'post_title' => "$nama - $tanggal",
-        'post_type' => 'swc_booking',
-        'post_status' => 'publish',
-        'meta_input' => array('txhash' => $txhash),
-    ));
-
-    if ($post_id) {
-        wp_send_json_success(array(
-            'message' => 'Booking on-chain dicatat.',
-            'txhash' => $txhash,
-            'post_id' => $post_id,
-        ));
-    } else {
-        wp_send_json_error('Gagal menyimpan booking.');
-    }
-}
-add_action('wp_ajax_swc_onchain', 'swc_handle_onchain');
-add_action('wp_ajax_nopriv_swc_onchain', 'swc_handle_onchain');
-
-// === Admin Menu for Smart Contract Settings ===
+// === Admin Menu: Pengaturan dan Daftar Booking ===
 function swc_add_admin_menu() {
     add_menu_page(
         'SmartWisata Settings',
@@ -159,15 +112,15 @@ function swc_add_admin_menu() {
         'swc_settings_page',
         'dashicons-admin-generic'
     );
-    add_submenu_page(
-    'smartwisatachain',
-    'Daftar Booking',
-    'Daftar Booking',
-    'manage_options',
-    'swc-booking-list',
-    'swc_booking_list_page'
-);
 
+    add_submenu_page(
+        'smartwisatachain',
+        'Daftar Booking',
+        'Daftar Booking',
+        'manage_options',
+        'swc-booking-list',
+        'swc_booking_list_page'
+    );
 }
 add_action('admin_menu', 'swc_add_admin_menu');
 
@@ -195,17 +148,16 @@ function swc_booking_list_page() {
     echo '</tbody></table></div>';
 }
 
+// === Pengaturan Kontrak di Admin Panel ===
 function swc_register_settings() {
     register_setting('swc_settings_group', 'swc_contract_address', 'sanitize_text_field');
     register_setting('swc_settings_group', 'swc_contract_abi', 'sanitize_textarea_field');
     register_setting('swc_settings_group', 'swc_booking_contract_address', 'sanitize_text_field');
     register_setting('swc_settings_group', 'swc_booking_contract_abi', 'sanitize_textarea_field');
-
-
 }
 add_action('admin_init', 'swc_register_settings');
+require_once plugin_dir_path(__FILE__) . 'includes/generate-token-form.php';
 
-// === Admin Settings Page HTML ===
 function swc_settings_page() { ?>
     <div class="wrap">
         <h1>Pengaturan SmartWisataChain</h1>
@@ -234,3 +186,14 @@ function swc_settings_page() { ?>
         </form>
     </div>
 <?php }
+
+// === Include handler untuk AJAX Booking ===
+$ajax_handler_path = plugin_dir_path(__FILE__) . 'includes/ajax_handler.php';
+if (file_exists($ajax_handler_path)) {
+    require_once $ajax_handler_path;
+}
+
+$ajax_file = plugin_dir_path(__FILE__) . 'includes/swc_ajax.php';
+if (file_exists($ajax_file)) {
+    require_once $ajax_file;
+}

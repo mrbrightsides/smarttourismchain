@@ -1,3 +1,4 @@
+
 <?php
 /**
  * Plugin Name: SmartWisataChain
@@ -26,12 +27,12 @@ function swc_enqueue_assets() {
         );
 
         wp_enqueue_script(
-        'qrcode-generator',
-        'https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js',
-        array(),
-        null,
-        true
-    );
+            'qrcode-generator',
+            'https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js',
+            array(),
+            null,
+            true
+        );
 
         wp_enqueue_script(
             'swc-booking',
@@ -56,21 +57,24 @@ function swc_enqueue_assets() {
             filemtime(plugin_dir_path(__FILE__) . 'js/generate-token.js'),
             true
         );
+        
+        function swc_enqueue_admin_scripts($hook) {
+            if ($hook === 'toplevel_page_smartwisatachain') {
+                wp_enqueue_script('fill-template-abi', plugin_dir_url(__FILE__) . 'js/fill-template-abi.js', array(), '1.0', true);
+            }
+        }
+        add_action('admin_enqueue_scripts', 'swc_enqueue_admin_scripts');
 
-       // Optional: Kalau swc-booking juga butuh data contract
         wp_localize_script('swc-booking', 'swc_ajax', array(
-    'ajax_url' => admin_url('admin-ajax.php'),
-    'contract_address' => get_option('swc_contract_address'),
-    'contract_abi' => get_option('swc_contract_abi'),
-    'booking_contract_address' => get_option('swc_booking_contract_address'),
-    'booking_contract_abi' => get_option('swc_booking_contract_abi'),
-));
-
-
+            'ajax_url' => admin_url('admin-ajax.php'),
+            'contract_address' => get_option('swc_contract_address'),
+            'contract_abi' => get_option('swc_contract_abi'),
+            'booking_contract_address' => get_option('swc_booking_contract_address'),
+            'booking_contract_abi' => get_option('swc_booking_contract_abi'),
+        ));
     }
 }
 add_action('wp_enqueue_scripts', 'swc_enqueue_assets');
-
 
 // === Register Booking Post Type ===
 function swc_register_post_type() {
@@ -95,12 +99,6 @@ function swc_booking_form() {
     return ob_get_clean();
 }
 add_shortcode('smartwisata_booking', 'swc_booking_form');
-
-// Fungsi swc_handle_offchain_booking() dipindah ke includes/swc_ajax.php
-
-
-
-
 
 // === Admin Menu: Pengaturan dan Daftar Booking ===
 function swc_add_admin_menu() {
@@ -167,19 +165,47 @@ function swc_settings_page() { ?>
             <table class="form-table">
                 <tr valign="top">
                     <th scope="row">Token Contract Address</th>
-                    <td><input type="text" name="swc_contract_address" value="<?php echo esc_attr(get_option('swc_contract_address')); ?>" style="width: 100%;" /></td>
+                    <td>
+                        <input type="text" name="swc_contract_address" value="<?php echo esc_attr(get_option('swc_contract_address')); ?>" style="width: 100%;" />
+                    </td>
                 </tr>
                 <tr valign="top">
-                    <th scope="row">Token Contract ABI (JSON)</th>
-                    <td><textarea name="swc_contract_abi" rows="10" style="width: 100%;"><?php echo esc_textarea(get_option('swc_contract_abi')); ?></textarea></td>
+                    <th scope="row">Token Contract ABI (Template Preview)</th>
+                    <td>
+                        <textarea readonly rows="10" style="width: 100%; background-color: #f8f8f8;"><?php
+                            echo esc_textarea(file_get_contents(plugin_dir_path(__FILE__) . 'abi/erc20.json'));
+                        ?></textarea>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">Token Contract ABI (Custom, Optional)</th>
+                    <td>
+                        <textarea name="swc_contract_abi" rows="10" style="width: 100%;" placeholder="Kolom ini tidak boleh kosong. Gunakan ABI di atas atau ABI Anda sendiri."><?php
+                            echo esc_textarea(get_option('swc_contract_abi'));
+                        ?></textarea>
+                    </td>
                 </tr>
                 <tr valign="top">
                     <th scope="row">Booking Contract Address</th>
-                    <td><input type="text" name="swc_booking_contract_address" value="<?php echo esc_attr(get_option('swc_booking_contract_address')); ?>" style="width: 100%;" /></td>
+                    <td>
+                        <input type="text" name="swc_booking_contract_address" value="<?php echo esc_attr(get_option('swc_booking_contract_address')); ?>" style="width: 100%;" />
+                    </td>
                 </tr>
                 <tr valign="top">
-                    <th scope="row">Booking Contract ABI (JSON)</th>
-                    <td><textarea name="swc_booking_contract_abi" rows="10" style="width: 100%;"><?php echo esc_textarea(get_option('swc_booking_contract_abi')); ?></textarea></td>
+                    <th scope="row">Booking Contract ABI (Template Preview)</th>
+                    <td>
+                        <textarea readonly rows="10" style="width: 100%; background-color: #f8f8f8;"><?php
+                            echo esc_textarea(file_get_contents(plugin_dir_path(__FILE__) . 'abi/booking.json'));
+                        ?></textarea>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">Booking Contract ABI (Custom, Optional)</th>
+                    <td>
+                        <textarea name="swc_booking_contract_abi" rows="10" style="width: 100%;" placeholder="Kolom ini tidak boleh kosong. Gunakan ABI di atas atau ABI Anda sendiri."><?php
+                            echo esc_textarea(get_option('swc_booking_contract_abi'));
+                        ?></textarea>
+                    </td>
                 </tr>
             </table>
             <?php submit_button(); ?>

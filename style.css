@@ -1,0 +1,12 @@
+/*
+Theme Name: SmartWisataChain Plugin Assets
+Theme URI: https://smartourism.elpeef.com/
+Description: Stylesheet required for plugin header. Not for frontend styling.
+Version: 1.1
+Author: Elpeef Dev Team
+License: GPLv3
+*/
+
+#qrcode {
+  min-height: 128px;
+}

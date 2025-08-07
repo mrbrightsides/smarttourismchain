@@ -6,8 +6,8 @@ We take security seriously and appreciate responsible disclosure.
 
 If you discover a vulnerability or security issue in this plugin:
 
-- **Do not open a public issue.**
-- Please report directly to: [plugin@smartourism.elpeef.com](mailto:plugin@smartourism.elpeef.com)
+- **Raise it in Issues or Discussions**
+- Or report directly to: [plugin@smartourism.elpeef.com](mailto:plugin@smartourism.elpeef.com)
 - We aim to respond within **72 hours**
 
 ## 🔐 Scope

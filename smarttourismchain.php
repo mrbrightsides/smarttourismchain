@@ -16,7 +16,7 @@
  */
 
 // === Enqueue JS (ethers + QR + main hybrid) ===
-function swc_enqueue_assets() {
+function stc_enqueue_assets() {
     if (is_page('simulasi')) {
         wp_enqueue_script(
             'ethers-js',
@@ -35,52 +35,45 @@ function swc_enqueue_assets() {
         );
 
         wp_enqueue_script(
-            'swc-booking',
-            plugins_url('js/swc-booking.js', __FILE__),
+            'stc-booking',
+            plugins_url('js/stc-booking.js', __FILE__),
             array('jquery', 'ethers-js'),
             '1.1',
             true
         );
 
         wp_enqueue_script(
-            'swc_ajax',
-            plugin_dir_url(__FILE__) . 'js/swc_ajax.js',
+            'stc_ajax',
+            plugin_dir_url(__FILE__) . 'js/stc_ajax.js',
             array('jquery'),
             null,
             true
         );
         
         wp_enqueue_script(
-            'swc-generate-token',
+            'stc-generate-token',
             plugin_dir_url(__FILE__) . 'js/generate-token.js',
             array('ethers-js'),
             filemtime(plugin_dir_path(__FILE__) . 'js/generate-token.js'),
             true
         );
         
-        function swc_enqueue_admin_scripts($hook) {
-            if ($hook === 'toplevel_page_smartwisatachain') {
-                wp_enqueue_script('fill-template-abi', plugin_dir_url(__FILE__) . 'js/fill-template-abi.js', array(), '1.0', true);
-            }
-        }
-        add_action('admin_enqueue_scripts', 'swc_enqueue_admin_scripts');
-
-        wp_localize_script('swc-booking', 'swc_ajax', array(
+        wp_localize_script('stc-booking', 'stc_ajax', array(
             'ajax_url' => admin_url('admin-ajax.php'),
-            'contract_address' => get_option('swc_contract_address'),
-            'contract_abi' => get_option('swc_contract_abi'),
-            'booking_contract_address' => get_option('swc_booking_contract_address'),
-            'booking_contract_abi' => get_option('swc_booking_contract_abi'),
+            'contract_address' => get_option('stc_contract_address'),
+            'contract_abi' => get_option('stc_contract_abi'),
+            'booking_contract_address' => get_option('stc_booking_contract_address'),
+            'booking_contract_abi' => get_option('stc_booking_contract_abi'),
         ));
     }
 }
-add_action('wp_enqueue_scripts', 'swc_enqueue_assets');
+add_action('wp_enqueue_scripts', 'stc_enqueue_assets');
 
 // === Register Booking Post Type ===
-function swc_register_post_type() {
-    register_post_type('swc_booking', array(
+function stc_register_post_type() {
+    register_post_type('stc_booking', array(
         'labels' => array(
-            'name' => __('Booking SWC'),
+            'name' => __('Booking stc'),
             'singular_name' => __('Booking'),
         ),
         'public' => true,
@@ -90,41 +83,41 @@ function swc_register_post_type() {
         'capability_type' => 'post',
     ));
 }
-add_action('init', 'swc_register_post_type');
+add_action('init', 'stc_register_post_type');
 
 // === Shortcode untuk Menampilkan Form ===
-function swc_booking_form() {
+function stc_booking_form() {
     ob_start();
     include plugin_dir_path(__FILE__) . 'views/form-booking.php';
     return ob_get_clean();
 }
-add_shortcode('smartwisata_booking', 'swc_booking_form');
+add_shortcode('smartwisata_booking', 'stc_booking_form');
 
 // === Admin Menu: Pengaturan dan Daftar Booking ===
-function swc_add_admin_menu() {
+function stc_add_admin_menu() {
     add_menu_page(
-        'SmartWisata Settings',
-        'SmartWisataChain',
-        'manage_options',
-        'smartwisatachain',
-        'swc_settings_page',
-        'dashicons-admin-generic'
-    );
+    'SmartTourism Settings',
+    'SmartTourismChain',
+    'manage_options',
+    'smarttourismchain',
+    'stc_settings_page',
+    'dashicons-admin-generic'
+);
 
     add_submenu_page(
-        'smartwisatachain',
-        'Daftar Booking',
-        'Daftar Booking',
-        'manage_options',
-        'swc-booking-list',
-        'swc_booking_list_page'
-    );
+    'smartwisatachain',
+    'Daftar Booking',
+    'Daftar Booking',
+    'manage_options',
+    'stc-booking-list',
+    'stc_booking_list_page'
+);
 }
-add_action('admin_menu', 'swc_add_admin_menu');
+add_action('admin_menu', 'stc_add_admin_menu');
 
-function swc_booking_list_page() {
+function stc_booking_list_page() {
     $bookings = get_posts(array(
-        'post_type' => 'swc_booking',
+        'post_type' => 'stc_booking',
         'numberposts' => -1,
         'post_status' => 'publish',
         'orderby' => 'date',
@@ -147,26 +140,26 @@ function swc_booking_list_page() {
 }
 
 // === Pengaturan Kontrak di Admin Panel ===
-function swc_register_settings() {
-    register_setting('swc_settings_group', 'swc_contract_address', 'sanitize_text_field');
-    register_setting('swc_settings_group', 'swc_contract_abi', 'sanitize_textarea_field');
-    register_setting('swc_settings_group', 'swc_booking_contract_address', 'sanitize_text_field');
-    register_setting('swc_settings_group', 'swc_booking_contract_abi', 'sanitize_textarea_field');
+function stc_register_settings() {
+    register_setting('stc_settings_group', 'stc_contract_address', 'sanitize_text_field');
+    register_setting('stc_settings_group', 'stc_contract_abi', 'sanitize_textarea_field');
+    register_setting('stc_settings_group', 'stc_booking_contract_address', 'sanitize_text_field');
+    register_setting('stc_settings_group', 'stc_booking_contract_abi', 'sanitize_textarea_field');
 }
-add_action('admin_init', 'swc_register_settings');
+add_action('admin_init', 'stc_register_settings');
 require_once plugin_dir_path(__FILE__) . 'includes/generate-token-form.php';
 
-function swc_settings_page() { ?>
+function stc_settings_page() { ?>
     <div class="wrap">
-        <h1>Pengaturan SmartWisataChain</h1>
+        <h1>Pengaturan SmartTourismChain</h1>
         <form method="post" action="options.php">
-            <?php settings_fields('swc_settings_group'); ?>
-            <?php do_settings_sections('swc_settings_group'); ?>
+            <?php settings_fields('stc_settings_group'); ?>
+            <?php do_settings_sections('stc_settings_group'); ?>
             <table class="form-table">
                 <tr valign="top">
                     <th scope="row">Token Contract Address</th>
                     <td>
-                        <input type="text" name="swc_contract_address" value="<?php echo esc_attr(get_option('swc_contract_address')); ?>" style="width: 100%;" />
+                        <input type="text" name="stc_contract_address" value="<?php echo esc_attr(get_option('stc_contract_address')); ?>" style="width: 100%;" />
                     </td>
                 </tr>
                 <tr valign="top">
@@ -180,15 +173,15 @@ function swc_settings_page() { ?>
                 <tr valign="top">
                     <th scope="row">Token Contract ABI (Custom, Optional)</th>
                     <td>
-                        <textarea name="swc_contract_abi" rows="10" style="width: 100%;" placeholder="Kolom ini tidak boleh kosong. Gunakan ABI di atas atau ABI Anda sendiri."><?php
-                            echo esc_textarea(get_option('swc_contract_abi'));
+                        <textarea name="stc_contract_abi" rows="10" style="width: 100%;" placeholder="Kolom ini tidak boleh kosong. Gunakan ABI di atas atau ABI Anda sendiri."><?php
+                            echo esc_textarea(get_option('stc_contract_abi'));
                         ?></textarea>
                     </td>
                 </tr>
                 <tr valign="top">
                     <th scope="row">Booking Contract Address</th>
                     <td>
-                        <input type="text" name="swc_booking_contract_address" value="<?php echo esc_attr(get_option('swc_booking_contract_address')); ?>" style="width: 100%;" />
+                        <input type="text" name="stc_booking_contract_address" value="<?php echo esc_attr(get_option('stc_booking_contract_address')); ?>" style="width: 100%;" />
                     </td>
                 </tr>
                 <tr valign="top">
@@ -202,8 +195,8 @@ function swc_settings_page() { ?>
                 <tr valign="top">
                     <th scope="row">Booking Contract ABI (Custom, Optional)</th>
                     <td>
-                        <textarea name="swc_booking_contract_abi" rows="10" style="width: 100%;" placeholder="Kolom ini tidak boleh kosong. Gunakan ABI di atas atau ABI Anda sendiri."><?php
-                            echo esc_textarea(get_option('swc_booking_contract_abi'));
+                        <textarea name="stc_booking_contract_abi" rows="10" style="width: 100%;" placeholder="Kolom ini tidak boleh kosong. Gunakan ABI di atas atau ABI Anda sendiri."><?php
+                            echo esc_textarea(get_option('stc_booking_contract_abi'));
                         ?></textarea>
                     </td>
                 </tr>
@@ -219,8 +212,9 @@ if (file_exists($ajax_handler_path)) {
     require_once $ajax_handler_path;
 }
 
-$ajax_file = plugin_dir_path(__FILE__) . 'includes/swc_ajax.php';
+$ajax_file = plugin_dir_path(__FILE__) . 'includes/stc_ajax.php';
 if (file_exists($ajax_file)) {
     require_once $ajax_file;
 }
+
 

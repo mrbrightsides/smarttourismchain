@@ -1,31 +1,34 @@
-=== SmartWisataChain ===
-Contributors: elpeefdev
+=== SmartTourismChain ===
+Contributors: khudri
 Tags: tourism, smart contract, blockchain, booking, decentralization
 Requires at least: 5.5
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.0
+Stable tag: 1.0.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Plugin URI: https://smartourism.elpeef.com/
+Author URI: https://elpeef.com/
+Author: ELPEEF Dev Team
 
-SmartWisataChain adalah plugin WordPress open-source yang memungkinkan integrasi sistem reservasi wisata dengan smart contract berbasis blockchain Ethereum.
+SmartTourismChain adalah plugin WordPress open-source yang memungkinkan integrasi sistem reservasi wisata dengan smart contract berbasis blockchain Ethereum.
 
 == Description ==
 
-SmartWisataChain dibuat untuk membantu pelaku wisata lokal mengotomatisasi proses pemesanan dan pencatatan transaksi dengan sistem yang transparan dan aman melalui teknologi smart contract.
+SmartTourismChain dibuat untuk membantu pelaku wisata lokal mengotomatisasi proses pemesanan dan pencatatan transaksi dengan sistem yang transparan dan aman melalui teknologi smart contract.
 
 Fitur utama:
 * Reservasi langsung tanpa perantara
 * Simulasi transaksi di jaringan testnet Sepolia
 * Integrasi mudah ke WordPress melalui shortcode
-* Branding SmartWisataChain (versi free)
+* Branding SmartTourismChain (versi free)
 * Kode terbuka, bisa dikembangkan lebih lanjut
 
 == Installation ==
 
-1. Upload folder `SmartWisataChain` ke dalam direktori `/wp-content/plugins/`
+1. Upload folder `SmartTourismChain` ke dalam direktori `/wp-content/plugins/`
 2. Aktifkan plugin melalui menu *Plugins* di WordPress
-3. Gunakan shortcode `[swc_booking]` untuk menampilkan tombol pemesanan
+3. Gunakan shortcode `[smartwisata_booking]` untuk menampilkan tombol pemesanan
 
 == Frequently Asked Questions ==
 
@@ -47,7 +50,7 @@ Ya, versi PRO dengan fitur white-label dan API lanjutan tersedia di https://smar
 == Changelog ==
 
 = 1.0.0 =
-* Rilis awal plugin SmartWisataChain versi gratis
+* Rilis awal plugin SmartTourismChain versi gratis
 * Mendukung reservasi berbasis smart contract testnet
 
 == Upgrade Notice ==
@@ -57,4 +60,9 @@ Versi awal. Harap backup sebelum upgrade di masa mendatang.
 
 == License ==
 
-SmartWisataChain is released under the GNU GPL v3 license.
+SmartTourismChain is released under the GNU GPL v3 license.
+
+== Credits ==
+
+SmartTourismChain is maintained by [Khudri](https://profiles.wordpress.org/khudri) and the [ELPEEF Dev Team](https://elpeef.com).  
+This plugin is part of the [RANTAI](https://rantai.elpeef.com) (Riset Amanah Teknologi dan Integrasi) initiative to promote Web3 adoption in the tourism sector.

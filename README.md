@@ -5,6 +5,7 @@
 ![License](https://img.shields.io/github/license/elpeef/smarttourismchain)
 ![Build](https://img.shields.io/badge/build-passing-brightgreen)
 ![Contributions](https://img.shields.io/badge/contributions-welcome-blue)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16763720.svg)](https://doi.org/10.5281/zenodo.16763720)
 
 SmartTourismChain is a WordPress plugin that enables dual-mode (on-chain/off-chain) booking transactions using Ethereum smart contracts and MetaMask. It’s built for real-world CMS systems like WordPress and WooCommerce to empower decentralized services for tourism, e-commerce, and more.
 

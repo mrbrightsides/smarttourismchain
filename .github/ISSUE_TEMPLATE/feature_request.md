@@ -1,6 +1,6 @@
 ---
 name: "✨ Feature Request"
-about: "Usulkan ide atau fitur baru untuk plugin SmartWisataChain"
+about: "Usulkan ide atau fitur baru untuk plugin SmartTourismChain"
 title: "[Feature] Judul fitur yang diusulkan"
 labels: ["enhancement"]
 assignees: []

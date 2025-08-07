@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("swc-booking-form");
-  const resultDiv = document.getElementById("swc-result");
+  const form = document.getElementById("stc-booking-form");
+  const resultDiv = document.getElementById("stc-result");
 
   if (!form || !resultDiv) return;
 
@@ -18,11 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (payment === "offchain") {
-      const res = await fetch(swc_ajax.ajax_url, {
+      const res = await fetch(stc_ajax.ajax_url, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams({
-          action: "swc_offchain",
+          action: "stc_offchain",
           nama,
           tanggal,
         }),
@@ -45,8 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
 
-      const contractAddress = swc_ajax.contract_address;
-      const abi = JSON.parse(swc_ajax.contract_abi);
+      const contractAddress = stc_ajax.contract_address;
+      const abi = JSON.parse(stc_ajax.contract_abi);
       const contract = new ethers.Contract(contractAddress, abi, signer);
 
       console.log("📝 Booking:", nama, tanggal);
@@ -61,11 +61,11 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("📦 Response dari tx.wait():", receipt);
 
       // Simpan ke backend
-      const simpan = await fetch(swc_ajax.ajax_url, {
+      const simpan = await fetch(stc_ajax.ajax_url, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams({
-          action: "swc_onchain",
+          action: "stc_onchain",
           nama,
           tanggal,
           txhash: txHash,
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // 🔽 Fungsi tampilkan hasil + QR Code
 function showSuccess(txHash) {
-  const resultDiv = document.getElementById("swc-result");
+  const resultDiv = document.getElementById("stc-result");
   const etherscanUrl = `https://sepolia.etherscan.io/tx/${txHash}`;
 
   resultDiv.innerHTML = `
@@ -113,4 +113,5 @@ function showSuccess(txHash) {
       console.error("❌ Gagal generate QR Code:", err);
     }
   }, 200);
+
 }

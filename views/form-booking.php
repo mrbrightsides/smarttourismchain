@@ -1,4 +1,4 @@
-<form id="swc-booking-form">
+<form id="stc-booking-form">
     <label>Nama:</label><br>
     <input type="text" id="nama" name="nama" required><br>
 

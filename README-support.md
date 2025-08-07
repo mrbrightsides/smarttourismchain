@@ -4,7 +4,7 @@
 
 Your support helps us continue building secure and accessible blockchain tools for everyone. 
 
-If you find SmartWisataChain helpful, consider supporting its development:
+If you find SmartTourismChain helpful, consider supporting its development:
 
 - [Buy me a coffee on Ko-fi](https://ko-fi.com/khudri)
 - [Support via Trakteer](https://trakteer.id/akhmad_khudri)

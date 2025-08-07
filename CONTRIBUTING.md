@@ -1,7 +1,7 @@
 
-# Contributing to SmartWisataChain Plugin
+# Contributing to SmartTourismChain Plugin
 
-Thank you for your interest in contributing to the **SmartWisataChain** WordPress plugin! 🎉  
+Thank you for your interest in contributing to the **SmartTourismChain** WordPress plugin! 🎉  
 This guide will help you get started with contributing to our codebase.
 
 ---
@@ -11,11 +11,11 @@ This guide will help you get started with contributing to our codebase.
 1. Fork this repository.
 2. Clone your fork:
    ```bash
-   git clone https://github.com/your-username/smartwisatachain.git
+   git clone https://github.com/ELPEEF/smarttourismchain.git
    ```
 3. Navigate to the plugin directory:
    ```bash
-   cd smartwisatachain
+   cd smarttourismchain
    ```
 4. Install it in your local WordPress environment under `wp-content/plugins/`.
 
@@ -27,7 +27,7 @@ This guide will help you get started with contributing to our codebase.
 - Use meaningful variable and function names.
 - Comment clearly, especially for logic that interacts with blockchain or smart contracts.
 - Keep functions modular and reusable.
-- Use `swc_` prefix for all custom functions to avoid conflicts.
+- Use `stc_` prefix for all custom functions to avoid conflicts.
 
 ---
 
@@ -52,14 +52,14 @@ This guide will help you get started with contributing to our codebase.
 
 ## 🔐 Security Issues
 
-If you discover a security vulnerability, please **DO NOT** open a public issue.  
-Instead, report it privately as described in [`SECURITY.md`](./SECURITY.md).
+If you discover a security vulnerability, please do **INFORM** us.  
+Freely report it as described in [`SECURITY.md`](./SECURITY.md).
 
 ---
 
 ## 💬 Need Help?
 
-Open an issue or reach out via [GitHub Discussions](https://github.com/Elpeef-Dev/smartwisatachain/discussions) if enabled.
+Open an issue or reach out via [GitHub Discussions](https://github.com/ELPEEF/smarttourismchain/discussions).
 
 We appreciate every line of code, idea, or improvement you share.  
 Let’s build a more transparent tourism future — together. 🌍🔗

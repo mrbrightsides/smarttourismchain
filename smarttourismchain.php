@@ -1,17 +1,17 @@
 
 <?php
 /**
- * Plugin Name: SmartWisataChain
+ * Plugin Name: SmartTourismChain
  * Plugin URI: https://smartourism.elpeef.com/
  * Description: Plugin open-source untuk transaksi wisata digital berbasis smart contract (versi free).
- * Version: 1.1
+ * Version: 1.0.0
  * Author: Elpeef Dev Team
  * Author URI: https://elpeef.com
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
- * Text Domain: smartwisatachain
+ * Text Domain: smarttourismchain
  * Requires at least: 5.5
- * Tested up to: 6.5
+ * Tested up to: 6.8
  * Requires PHP: 7.4
  */
 
@@ -223,3 +223,4 @@ $ajax_file = plugin_dir_path(__FILE__) . 'includes/swc_ajax.php';
 if (file_exists($ajax_file)) {
     require_once $ajax_file;
 }
+

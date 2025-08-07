@@ -1,4 +1,4 @@
-console.log('swc_ajax:', swc_ajax);
+console.log('stc_ajax:', stc_ajax);
 
 async function connectWallet() {
     if (typeof window.ethereum !== 'undefined') {
@@ -13,8 +13,8 @@ async function connectWallet() {
 
 async function sendToken(toAddress, amount) {
     const signer = await connectWallet();
-    const contractAddress = swc_ajax.contract_address;
-    const abi = JSON.parse(swc_ajax.contract_abi);
+    const contractAddress = stc_ajax.contract_address;
+    const abi = JSON.parse(stc_ajax.contract_abi);
 
     const tokenContract = new ethers.Contract(contractAddress, abi, signer);
 
@@ -33,8 +33,8 @@ async function sendToken(toAddress, amount) {
 
 async function makeBooking(bookingId, nama, tanggal, hotel) {
     const signer = await connectWallet();
-    const contractAddress = swc_ajax.booking_contract_address;
-    const abi = JSON.parse(swc_ajax.booking_contract_abi);
+    const contractAddress = stc_ajax.booking_contract_address;
+    const abi = JSON.parse(stc_ajax.booking_contract_abi);
 
     const bookingContract = new ethers.Contract(contractAddress, abi, signer);
 
@@ -61,9 +61,9 @@ if (metode === "onchain") {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector('#swc-booking-form');
+    const form = document.querySelector('#stc-booking-form');
     if (!form) {
-        console.warn("Form #swc-booking-form tidak ditemukan");
+        console.warn("Form #stc-booking-form tidak ditemukan");
         return;
     }
 
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!bookingTx) return;
 
             const formData = new FormData();
-            formData.append('action', 'swc_record_onchain');
+            formData.append('action', 'stc_record_onchain');
             formData.append('booking_id', bookingId);
             formData.append('nama', nama);
             formData.append('tanggal', tanggal);
@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
             formData.append('tx_hash', bookingTx);
 
             try {
-                const response = await fetch(swc_ajax.ajax_url, {
+                const response = await fetch(stc_ajax.ajax_url, {
                     method: 'POST',
                     body: formData
                 });
@@ -145,10 +145,10 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             // OFFCHAIN MODE
             const formData = new FormData(form);
-            formData.append('action', 'swc_offchain');
+            formData.append('action', 'stc_offchain');
 
             try {
-                const response = await fetch(swc_ajax.ajax_url, {
+                const response = await fetch(stc_ajax.ajax_url, {
                     method: 'POST',
                     body: formData
                 });
@@ -177,4 +177,5 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     });
+
 });

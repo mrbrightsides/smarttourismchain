@@ -2,12 +2,12 @@ blank_issues_enabled: false
 
 contact_links:
   - name: 💬 Tanya Jawab & Diskusi
-    url: https://github.com/ELPEEF/smartwisatachain/discussions
+    url: https://github.com/ELPEEF/smarttourismchain/discussions
     about: Tempat untuk ngobrol santai, tanya teknis, atau diskusi roadmap bareng dev & kontributor
 
 issue_templates:
   - name: 🐛 Bug Report
-    description: Laporkan masalah/error yang kamu temukan saat menggunakan plugin SmartWisataChain
+    description: Laporkan masalah/error yang kamu temukan saat menggunakan plugin SmartTourismChain
     labels: [bug]
     file: bug_report.md
 

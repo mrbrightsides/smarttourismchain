@@ -1,7 +1,7 @@
 
 # 📜 NOTICE
 
-This software is part of the **SmartWisataChain** project developed by the RANTAI, an initiative maintained closely by ELPEEF. 
+This software is part of the **SmartTourismChain** project developed by the RANTAI, an initiative maintained closely by ELPEEF. 
 
 **SmartWisataChain** is released under the GNU General Public License v3.0 (GPLv3).  
 You are free to use, modify, and distribute this software under the same license terms.
@@ -14,9 +14,9 @@ However, we kindly ask that you respect the following:
 
 If you use or fork this project, please provide clear credit by including:
 
-- The original project name: **SmartWisataChain**
+- The original project name: **SmartTourismChain**
 - The original authors: **ELPEEF Dev Team**
-- A link to the original repository: [https://github.com/ELPEEF/smartwisatachain](https://github.com/ELPEEF/smartwisatachain)
+- A link to the original repository: [https://github.com/ELPEEF/smarttourismchain](https://github.com/ELPEEF/smarttourismchain)
 
 ---
 

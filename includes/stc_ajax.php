@@ -5,13 +5,13 @@ if (!defined('ABSPATH')) {
 }
 
 // === Logging only, tidak menyimpan ke post_type ===
-error_log("✅ swc_ajax.php loaded");
+error_log("✅ stc_ajax.php loaded");
 
 // === OFFCHAIN LOGGING (simulasi atau uji coba) ===
-add_action('wp_ajax_swc_handle_offchain_booking', 'swc_handle_offchain_booking');
-add_action('wp_ajax_nopriv_swc_handle_offchain_booking', 'swc_handle_offchain_booking');
+add_action('wp_ajax_stc_handle_offchain_booking', 'stc_handle_offchain_booking');
+add_action('wp_ajax_nopriv_stc_handle_offchain_booking', 'stc_handle_offchain_booking');
 
-function swc_handle_offchain_booking() {
+function stc_handle_offchain_booking() {
     $nama    = sanitize_text_field($_POST['nama']);
     $hotel   = sanitize_text_field($_POST['hotel']);
     $tanggal = sanitize_text_field($_POST['tanggal']);
@@ -39,10 +39,10 @@ function swc_handle_offchain_booking() {
 }
 
 // === ONCHAIN LOGGING ===
-add_action('wp_ajax_swc_record_onchain', 'swc_record_onchain');
-add_action('wp_ajax_nopriv_swc_record_onchain', 'swc_record_onchain');
+add_action('wp_ajax_stc_record_onchain', 'stc_record_onchain');
+add_action('wp_ajax_nopriv_stc_record_onchain', 'stc_record_onchain');
 
-function swc_record_onchain() {
+function stc_record_onchain() {
     ob_clean();
     header('Content-Type: application/json; charset=utf-8');
 
@@ -66,7 +66,7 @@ function swc_record_onchain() {
     // Simpan ke admin
     $post_id = wp_insert_post(array(
         'post_title'  => $booking_id . ' – ' . $nama,
-        'post_type'   => 'swc_booking_form',
+        'post_type'   => 'stc_booking_form',
         'post_status' => 'publish',
     ));
 

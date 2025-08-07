@@ -1,6 +1,6 @@
-# 🛣️ SmartWisataChain Roadmap
+# 🛣️ SmartTourismChain Roadmap
 
-This document outlines the planned and proposed features for future versions of SmartWisataChain.  
+This document outlines the planned and proposed features for future versions of SmartTourismChain.  
 We welcome contributions, suggestions, and collaboration to bring these ideas to life.
 
 ## ✅ Completed
@@ -47,3 +47,5 @@ We welcome contributions, suggestions, and collaboration to bring these ideas to
 
 Want to help build the future?  
 👉 Fork us, raise an issue, or contribute directly!
+
+<img width="1024" height="768" alt="road map swc" src="https://github.com/user-attachments/assets/efaa2e30-0320-4714-95bc-3c47eafd40dd" />

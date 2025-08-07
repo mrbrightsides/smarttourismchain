@@ -10,8 +10,8 @@ async function connectWallet() {
 
 async function sendToken(toAddress, amount) {
     const signer = await connectWallet();
-    const contractAddress = swc_ajax.contract_address;
-    const abi = JSON.parse(swc_ajax.contract_abi);
+    const contractAddress = stc_ajax.contract_address;
+    const abi = JSON.parse(stc_ajax.contract_abi);
 
     const tokenContract = new ethers.Contract(contractAddress, abi, signer);
 
@@ -29,8 +29,8 @@ async function sendToken(toAddress, amount) {
 
 async function makeBooking(bookingId, nama, tanggal, hotel) {
     const signer = await connectWallet();
-    const contractAddress = swc_ajax.booking_contract_address;
-    const abi = JSON.parse(swc_ajax.booking_contract_abi);
+    const contractAddress = stc_ajax.booking_contract_address;
+    const abi = JSON.parse(stc_ajax.booking_contract_abi);
 
     const bookingContract = new ethers.Contract(contractAddress, abi, signer);
 
@@ -40,12 +40,12 @@ async function makeBooking(bookingId, nama, tanggal, hotel) {
 
 // Kirim txHash ke backend
 const postData = new FormData();
-postData.append('action', 'swc_onchain');
+postData.append('action', 'stc_onchain');
 postData.append('nama', nama);
 postData.append('tanggal', tanggal);
 postData.append('txhash', tx.hash);
 
-const response = await fetch(swc_ajax.ajax_url, {
+const response = await fetch(stc_ajax.ajax_url, {
     method: 'POST',
     body: postData
 });
@@ -65,7 +65,7 @@ if (result.success) {
 }
 
 
-document.querySelector('#swc-booking-form').addEventListener('submit', async function (e) {
+document.querySelector('#stc-booking-form').addEventListener('submit', async function (e) {
     e.preventDefault();
 
     const metode = document.querySelector('input[name="payment"]:checked').value;
@@ -86,9 +86,9 @@ document.querySelector('#swc-booking-form').addEventListener('submit', async fun
         await makeBooking(bookingId, nama, tanggal, hotel);
     } else {
         const formData = new FormData(e.target);
-        formData.append('action', 'swc_offchain');
+        formData.append('action', 'stc_offchain');
 
-        const response = await fetch(swc_ajax.ajax_url, {
+        const response = await fetch(stc_ajax.ajax_url, {
             method: 'POST',
             body: formData
         });
@@ -98,6 +98,7 @@ document.querySelector('#swc-booking-form').addEventListener('submit', async fun
     }
 });
 
-document.querySelector('#swc-result').textContent = "Mohon tunggu, memproses...";
+document.querySelector('#stc-result').textContent = "Mohon tunggu, memproses...";
+
 
 if (!confirm(`Kamu yakin ingin booking ke hotel ${hotel} pada ${tanggal}?`)) return;

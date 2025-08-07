@@ -1,12 +1,12 @@
-# SmartWisataChain
+# SmartTourismChain
 
 **Secure by design, simple by intention.**
 
-![License](https://img.shields.io/github/license/elpeef/smartwisatachain)
+![License](https://img.shields.io/github/license/elpeef/smarttourismchain)
 ![Build](https://img.shields.io/badge/build-passing-brightgreen)
 ![Contributions](https://img.shields.io/badge/contributions-welcome-blue)
 
-SmartWisataChain is a WordPress plugin that enables dual-mode (on-chain/off-chain) booking transactions using Ethereum smart contracts and MetaMask. It’s built for real-world CMS systems like WordPress and WooCommerce to empower decentralized services for tourism, e-commerce, and more.
+SmartTourismChain is a WordPress plugin that enables dual-mode (on-chain/off-chain) booking transactions using Ethereum smart contracts and MetaMask. It’s built for real-world CMS systems like WordPress and WooCommerce to empower decentralized services for tourism, e-commerce, and more.
 
 🔗 Smart Contract Repo: [smarttourism (Solidity)](https://github.com/mrbrightsides/smarttourism)  
 📘 Documentation: [smartourism.elpeef.com/docs](https://smartourism.elpeef.com/docs)
@@ -26,10 +26,10 @@ SmartWisataChain is a WordPress plugin that enables dual-mode (on-chain/off-chai
 ## 📦 Installation
 1. Clone this repository:
    ```bash
-   git clone https://github.com/ELPEEF/smartwisatachain.git
+   git clone https://github.com/ELPEEF/smarttourismchain.git
 2. Upload the folder to your WordPress installation under wp-content/plugins/.
 3. Activate the plugin via WP Admin → Plugins.
-4. Open SmartWisataChain Settings:
+4. Open SmartTourismChain Settings:
 - Input your contract address
 - Paste the ABI JSON
 - Put them into form token or booking mode or both
@@ -42,7 +42,7 @@ SmartWisataChain is a WordPress plugin that enables dual-mode (on-chain/off-chai
 ## 🤝 Contributing
 We welcome contributions! To get started:
 
-Read our Contribution Guide on https://github.com/ELPEEF/swc-docs.git
+Read our Contribution Guide on https://github.com/ELPEEF/stc-docs.git
 
 or open an issue on GitHub Issues
 
@@ -58,13 +58,13 @@ Built with 🔗 by ELPEEF Dev Team
 ---
 
 ## 🙌 Support
-You can support SmartWisataChain [here](./README-support.md) to help us keep building awesome tools.
+You can support SmartTourismChain [here](./README-support.md) to help us keep building awesome tools.
 
 ---
 
-# 🛠️ SmartWisataChain System Roadmap
+# 🛠️ SmartTourismChain System Roadmap
 
-Adapted from modern website development flow, this roadmap documents the key stages in the design, implementation, and deployment of the SmartWisataChain system — a blockchain-integrated reservation plugin for the tourism sector.
+Adapted from modern website development flow, this roadmap documents the key stages in the design, implementation, and deployment of the SmartTourismChain system — a blockchain-integrated reservation plugin for the tourism sector.
 
 ---
 
@@ -106,7 +106,7 @@ Adapted from modern website development flow, this roadmap documents the key sta
 
 - Designing the UI for reservation and admin panels
 - Creating landing page and token logo
-- Branding "SmartWisataChain" and "RANTAI"
+- Branding "SmartTourismChain" and "RANTAI"
 - Data-informed design decisions based on insights from user behavior, keyword trends, and tourism service gaps
 
 📊 Source data collected via:
@@ -120,7 +120,7 @@ Adapted from modern website development flow, this roadmap documents the key sta
 
 ## 5. 📝 Content
 
-- Writing technical documentation in `swc-docs`
+- Writing technical documentation in `stc-docs`
 - Educational narrative for RANTAI landing page
 - Creating Blockchain Enterprise class material
 - GitHub Classroom starter templates
@@ -136,7 +136,7 @@ Adapted from modern website development flow, this roadmap documents the key sta
 - Logging transactions (txHash, timestamp, etc.)
 - Verifying booking via QR and wallet address
 
-**📌 Output:** Plugin v1.0 (SmartWisataChain), simulation portal
+**📌 Output:** Plugin v1.0 (SmartTourismChain), simulation portal
 
 ---
 
@@ -156,7 +156,7 @@ Adapted from modern website development flow, this roadmap documents the key sta
 - Publishing plugin to WordPress repository
 - Hosting documentation via GitHub Pages
 - Launching [https://smartourism.elpeef.com](https://smartourism.elpeef.com)
-- Submitting papers to IJSDEP and IRICT 2025
+- Submitting papers to IMED and IRICT end of 2025
 
 **📌 Output:** Public release, academic publications, open access tools
 
@@ -171,7 +171,8 @@ Adapted from modern website development flow, this roadmap documents the key sta
 
 **📌 Output:** Plugin v1.x, updated roadmap, community engagement
 
-<img width="588" height="881" alt="image" src="https://github.com/user-attachments/assets/37f7b0cb-b801-4d10-913a-7b101930a867" />
+STC Architecture from scraped dataset to on-chain transactions
+<img width="589" height="726" alt="work flow STC" src="https://github.com/user-attachments/assets/c9b550f6-6cf7-4c94-97b7-2086bef4b8f1" />
 
 ---
 

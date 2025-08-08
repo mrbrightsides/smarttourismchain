@@ -19,8 +19,8 @@ SmartTourismChain helps local tourism actors **simulate and prepare for real blo
 You can:
 - Experience **real smart contract interaction** using Ethereum Sepolia testnet  
 - **Customize and extend** the plugin for your own business logic  
-- Use it for **training, demos, thesis, or pilot projects**  
-- Deploy on mainnet or Layer 2 with minor adjustments
+- Use it for **training, demos, thesis, or pilot projects**
+  
 🔗 Smart Contract Repo: [smartourism (Solidity)](https://github.com/mrbrightsides/smartourism)  
 📘 Documentation: [smartourism.elpeef.com/docs](https://smartourism.elpeef.com/docs)
 

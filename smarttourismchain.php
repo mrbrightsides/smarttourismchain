@@ -96,9 +96,9 @@ add_action('wp_enqueue_scripts', 'stc_enqueue_assets');
 function stc_register_post_type() {
     register_post_type('stc_booking', array(
         'labels' => array(
-            'name' => __('Booking STC'),
-            'singular_name' => __('Booking'),
-        ),
+    'name' => __( 'Booking STC', 'smarttourismchain' ),
+    'singular_name' => __( 'Booking', 'smarttourismchain' ),
+),
         'public' => true,
         //'publicly_queryable' => false,
         'has_archive' => false,
@@ -125,8 +125,8 @@ add_shortcode('smartwisata_booking', 'stc_booking_form');
 // === Admin Menu: Pengaturan dan Daftar Booking ===
 function stc_add_admin_menu() {
     add_menu_page(
-    'SmartTourism Settings',
-    'SmartTourismChain',
+     __( 'SmartTourism Settings', 'smarttourismchain' ),
+    __( 'SmartTourismChain', 'smarttourismchain' ),
     'manage_options',
     'smarttourismchain',
     'stc_settings_page',
@@ -135,8 +135,8 @@ function stc_add_admin_menu() {
 
     add_submenu_page(
     'smarttourismchain',
-    'Daftar Booking',
-    'Daftar Booking',
+     __( 'Daftar Booking', 'smarttourismchain' ),
+    __( 'Daftar Booking', 'smarttourismchain' ),
     'manage_options',
     'stc-booking-list',
     'stc_booking_list_page'
@@ -153,8 +153,13 @@ function stc_booking_list_page() {
         'order' => 'DESC',
     ));
 
-    echo '<div class="wrap"><h1>Daftar Booking</h1><table class="wp-list-table widefat fixed striped">';
-    echo '<thead><tr><th>Judul</th><th>Tanggal</th><th>TxHash</th></tr></thead><tbody>';
+    echo '<div class="wrap"><h1>' . esc_html__( 'Daftar Booking', 'smarttourismchain' ) . '</h1><table class="wp-list-table widefat fixed striped">';
+echo '<thead><tr>';
+echo '<th>' . esc_html__( 'Judul', 'smarttourismchain' ) . '</th>';
+echo '<th>' . esc_html__( 'Tanggal', 'smarttourismchain' ) . '</th>';
+echo '<th>' . esc_html__( 'TxHash', 'smarttourismchain' ) . '</th>';
+echo '</tr></thead><tbody>';
+
 
     foreach ($bookings as $booking) {
         $tx = get_post_meta($booking->ID, 'txhash', true);
@@ -188,19 +193,19 @@ function stc_set_booking_default_fallback() {
 
 function stc_settings_page() { ?>
     <div class="wrap">
-        <h1>Pengaturan SmartTourismChain</h1>
+        <h1><?php esc_html_e( 'Pengaturan SmartTourismChain', 'smarttourismchain' ); ?></h1>
         <form method="post" action="options.php">
             <?php settings_fields('stc_settings_group'); ?>
             <?php do_settings_sections('stc_settings_group'); ?>
             <table class="form-table">
                 <tr valign="top">
-                    <th scope="row">Token Contract Address</th>
+                    <th scope="row"><?php esc_html_e( 'Token Contract Address', 'smarttourismchain' ); ?></th>
                     <td>
                         <input type="text" name="stc_contract_address" value="<?php echo esc_attr(get_option('stc_contract_address')); ?>" style="width: 100%;" />
                     </td>
                 </tr>
                 <tr valign="top">
-                    <th scope="row">Token Contract ABI (Template Preview)</th>
+                    <th scope="row"><?php esc_html_e( 'Token Contract ABI (Template Preview)', 'smarttourismchain' ); ?></th>
                     <td>
                         <textarea readonly rows="10" style="width: 100%; background-color: #f8f8f8;"><?php
                             echo esc_textarea(file_get_contents(plugin_dir_path(__FILE__) . 'abi/erc20.json'));
@@ -208,25 +213,25 @@ function stc_settings_page() { ?>
                     </td>
                 </tr>
                 <tr valign="top">
-                    <th scope="row">Token Contract ABI (Custom, Optional)</th>
+                    <th scope="row"><?php esc_html_e( 'Token Contract ABI (Custom, Optional)', 'smarttourismchain' ); ?></th>
                     <p>
-    🔧 Gunakan shortcode <code>[stc_generate_token]</code> di halaman manapun untuk membuat token ERC-20 Anda secara instan. Setelah token berhasil dibuat, copy alamat kontraknya ke kolom Token Contract Address di bawah.
+    <?php esc_html_e( '🔧 Gunakan shortcode [stc_generate_token] di halaman manapun untuk membuat token ERC-20 Anda secara instan. Setelah token berhasil dibuat, copy alamat kontraknya ke kolom Token Contract Address di bawah.', 'smarttourismchain' ); ?>
 </p>
-
                     <td>
-                        <textarea name="stc_contract_abi" rows="10" style="width: 100%;" placeholder="Kolom ini tidak boleh kosong. Gunakan ABI di atas atau ABI versi Anda sendiri."><?php
+                        <textarea name="stc_contract_abi" rows="10" style="width: 100%;" placeholder="<?php esc_attr_e( 'Kolom ini tidak boleh kosong. Gunakan ABI di atas atau ABI versi Anda sendiri.', 'smarttourismchain' ); ?>"
+><?php
                             echo esc_textarea(get_option('stc_contract_abi'));
                         ?></textarea>
                     </td>
                 </tr>
                 <tr valign="top">
-                    <th scope="row">🛡️ Default STC Contract: biarkan terisi default jika ingin menggunakan kontrak resmi dari SmartTourismChain.</th>
+                    <th scope="row"><?php esc_html_e( '🛡️ Default STC Contract: biarkan terisi default jika ingin menggunakan kontrak resmi dari SmartTourismChain.', 'smarttourismchain' ); ?></th>
                     <td>
                         <input type="text" name="stc_booking_contract_address" value="<?php echo esc_attr(get_option('stc_booking_contract_address')); ?>" style="width: 100%;" />
                     </td>
                 </tr>
                 <tr valign="top">
-                    <th scope="row">Booking Contract ABI (Template Preview)</th>
+                    <th scope="row"><?php esc_html_e( 'Booking Contract ABI (Template Preview)', 'smarttourismchain' ); ?></th>
                     <td>
                         <textarea readonly rows="10" style="width: 100%; background-color: #f8f8f8;"><?php
                             echo esc_textarea(file_get_contents(plugin_dir_path(__FILE__) . 'abi/booking.json'));
@@ -234,9 +239,10 @@ function stc_settings_page() { ?>
                     </td>
                 </tr>
                 <tr valign="top">
-                    <th scope="row">Booking Contract ABI (Custom, Optional)</th>
+                    <th scope="row"><?php esc_html_e( 'Booking Contract ABI (Custom, Optional)', 'smarttourismchain' ); ?></th>
                     <td>
-                        <textarea name="stc_booking_contract_abi" rows="10" style="width: 100%;" placeholder="Kolom ini tidak boleh kosong. Gunakan ABI di atas atau ABI versi Anda sendiri."><?php
+                        <textarea name="stc_booking_contract_abi" rows="10" style="width: 100%;" placeholder="<?php esc_attr_e( 'Kolom ini tidak boleh kosong. Gunakan ABI di atas atau ABI versi Anda sendiri.', 'smarttourismchain' ); ?>"
+><?php
                             echo esc_textarea(get_option('stc_booking_contract_abi'));
                         ?></textarea>
                     </td>
@@ -257,3 +263,9 @@ $ajax_file = plugin_dir_path(__FILE__) . 'includes/stc_ajax.php';
 if (file_exists($ajax_file)) {
     require_once $ajax_file;
 }
+
+// === Load Translation ===
+function stc_load_textdomain() {
+    load_plugin_textdomain( 'smarttourismchain', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+}
+add_action( 'plugins_loaded', 'stc_load_textdomain' );

@@ -28,14 +28,15 @@ function stc_handle_offchain_booking() {
 
     error_log("📘 OFFCHAIN Booking:\n" . print_r($log, true));
 
-    wp_send_json_success(array(
-        'message'     => 'Reservasi off-chain berhasil (log-only).',
-        'booking_id'  => $booking_id,
-        'nama'        => $nama,
-        'hotel'       => $hotel,
-        'tanggal'     => $tanggal,
-        'mode'        => 'offchain'
-    ));
+wp_send_json_success(array(
+    'message'     => esc_html__( 'Reservasi off-chain berhasil (log-only).', 'smarttourismchain' ),
+    'booking_id'  => $booking_id,
+    'nama'        => $nama,
+    'hotel'       => $hotel,
+    'tanggal'     => $tanggal,
+    'mode'        => 'offchain'
+));
+
 }
 
 // === ONCHAIN LOGGING ===
@@ -82,7 +83,7 @@ function stc_record_onchain() {
     $link_qr = 'https://sepolia.etherscan.io/tx/' . $tx_hash;
 
 wp_send_json_success(array(
-    'message'   => 'Reservasi on-chain berhasil dicatat.',
+    'message'   => esc_html__( 'Reservasi on-chain berhasil dicatat.', 'smarttourismchain' ),
     'booking_id'=> $booking_id,
     'tx_hash'   => $tx_hash,
     'nama'      => $nama,

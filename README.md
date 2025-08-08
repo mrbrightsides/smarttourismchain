@@ -2,6 +2,13 @@
 
 **Secure by design, simple by intention.**
 
+---
+
+“🎯 This plugin currently uses Ethereum Sepolia for simulation.
+Ready for the real thing? Migrate to mainnet with your own contract or talk to our team.”
+
+---
+
 ![License](https://img.shields.io/github/license/elpeef/smarttourismchain)
 ![Build](https://img.shields.io/badge/build-passing-brightgreen)
 ![Contributions](https://img.shields.io/badge/contributions-welcome-blue)

@@ -1,5 +1,5 @@
 <?php
-function stc_generate_token_form() {
+function stcdrk_generate_token_form() {
     ob_start();
 ?>
     <form id="generateTokenForm">
@@ -33,4 +33,4 @@ function stc_generate_token_form() {
 <?php
     return ob_get_clean();
 }
-add_shortcode('stc_generate_token', 'stc_generate_token_form');
+add_shortcode('stc_generate_token', 'stcdrk_generate_token_form');

@@ -46,12 +46,12 @@ function handle_stc_offchain() {
         error_log("✅ Booking berhasil disimpan: ID $post_id");
 
         wp_send_json_success(array(
-            'message' => 'Booking berhasil disimpan ke sistem.',
-            'post_id' => $post_id,
-        ));
+    'message' => esc_html__( 'Booking berhasil disimpan ke sistem.', 'smarttourismchain' ),
+    'post_id' => $post_id,
+));
+
     } else {
         error_log("❌ Gagal simpan post: " . print_r($post_id, true));
-        wp_send_json_error("Gagal simpan booking.");
+        wp_send_json_error( esc_html__( 'Gagal simpan booking.', 'smarttourismchain' ) );
     }
-
 }

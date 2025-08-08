@@ -7,9 +7,14 @@
 ![Contributions](https://img.shields.io/badge/contributions-welcome-blue)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16763720.svg)](https://doi.org/10.5281/zenodo.16763720)
 
-SmartTourismChain is a WordPress plugin that enables dual-mode (on-chain/off-chain) booking transactions using Ethereum smart contracts and MetaMask. It’s built for real-world CMS systems like WordPress and WooCommerce to empower decentralized services for tourism, e-commerce, and more.
+SmartTourismChain helps local tourism actors **simulate and prepare for real blockchain-based booking systems**, without spending real ETH or risking real assets.
 
-🔗 Smart Contract Repo: [smarttourism (Solidity)](https://github.com/mrbrightsides/smarttourism)  
+You can:
+- Experience **real smart contract interaction** using Ethereum Sepolia testnet  
+- **Customize and extend** the plugin for your own business logic  
+- Use it for **training, demos, thesis, or pilot projects**  
+- Deploy on mainnet or Layer 2 with minor adjustments
+🔗 Smart Contract Repo: [smartourism (Solidity)](https://github.com/mrbrightsides/smartourism)  
 📘 Documentation: [smartourism.elpeef.com/docs](https://smartourism.elpeef.com/docs)
 
 ---
@@ -37,6 +42,26 @@ SmartTourismChain is a WordPress plugin that enables dual-mode (on-chain/off-cha
 5. Use the shortcode below on any page or post:
   [smartwisata_booking]
 6. Connect MetaMask in frontend and start testing!
+
+---
+
+## 💬 Frequently Asked Questions
+
+### Is this plugin connected to real blockchain payments?  
+No. The current version runs on Ethereum **Sepolia testnet**, allowing you to simulate transactions **safely and freely**.  
+You can deploy your own smart contract to **mainnet or Layer 2** when you're ready.
+
+### Why should I install a testnet plugin?  
+Because this plugin:  
+- Prepares you for **real blockchain adoption**
+- Enables **hands-on experience** with Web3 in tourism  
+- Can be **extended to production use** with your own token, contract, and payment flow
+
+### Can I use my own smart contract?  
+Yes. The system is flexible. You can insert your own smart contract address and ABI for full customization.
+
+### Is there a PRO version?  
+Yes, a PRO version with **white-label features**, **API access**, and **real token integration** is available at [https://smartourism.elpeef.com](https://smartourism.elpeef.com)
 
 ---
 

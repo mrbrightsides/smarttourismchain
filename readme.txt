@@ -11,11 +11,19 @@ Plugin URI: https://smartourism.elpeef.com/
 Author URI: https://elpeef.com/
 Author: ELPEEF Dev Team
 
-SmartTourismChain is an open-source WordPress plugin that enables a blockchain-based booking system using Ethereum smart contracts.
+SmartTourismChain helps local tourism actors simulate and prepare for real blockchain-based booking systems, without spending real ETH or risking real assets.
 
 == Description ==
 
-SmartTourismChain was built to help local tourism actors automate booking and transaction logging through a transparent and secure blockchain system.
+With this plugin, you can:
+
+- Experience real smart contract interaction using testnet Sepolia
+
+- Customize and extend the plugin for your own business logic
+
+- Use it for training, demos, thesis, or pilot projects
+
+When you're ready, the same code can be migrated to mainnet or Layer 2 with just a few tweaks
 
 == Main features: ==
 

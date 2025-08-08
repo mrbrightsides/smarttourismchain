@@ -1,0 +1,191 @@
+# Copyright (C) 2025 Elpeef Dev Team
+# This file is distributed under the GPLv3.
+msgid ""
+msgstr ""
+"Project-Id-Version: SmartTourismChain 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/smarttourismchain\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-08-08T17:10:59+02:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: smarttourismchain\n"
+
+#. Plugin Name of the plugin
+#: smarttourismchain.php
+#: smarttourismchain.php:129
+msgid "SmartTourismChain"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: smarttourismchain.php
+msgid "https://smartourism.elpeef.com/"
+msgstr ""
+
+#. Description of the plugin
+#: smarttourismchain.php
+msgid "Plugin open-source untuk transaksi wisata digital berbasis smart contract (versi free)."
+msgstr ""
+
+#. Author of the plugin
+#: smarttourismchain.php
+msgid "Elpeef Dev Team"
+msgstr ""
+
+#. Author URI of the plugin
+#: smarttourismchain.php
+msgid "https://elpeef.com"
+msgstr ""
+
+#: includes/ajax_handler.php:49
+msgid "Booking berhasil disimpan ke sistem."
+msgstr ""
+
+#: includes/ajax_handler.php:55
+msgid "Gagal simpan booking."
+msgstr ""
+
+#: includes/generate-token-form.php:7
+msgid "Token Name:"
+msgstr ""
+
+#: includes/generate-token-form.php:12
+msgid "Symbol:"
+msgstr ""
+
+#: includes/generate-token-form.php:17
+msgid "Total Supply:"
+msgstr ""
+
+#: includes/generate-token-form.php:22
+msgid "Generate Token"
+msgstr ""
+
+#: includes/stc_ajax.php:32
+msgid "Reservasi off-chain berhasil (log-only)."
+msgstr ""
+
+#: includes/stc_ajax.php:86
+msgid "Reservasi on-chain berhasil dicatat."
+msgstr ""
+
+#: smarttourismchain.php:99
+msgid "Booking STC"
+msgstr ""
+
+#: smarttourismchain.php:100
+msgid "Booking"
+msgstr ""
+
+#: smarttourismchain.php:128
+msgid "SmartTourism Settings"
+msgstr ""
+
+#: smarttourismchain.php:138
+#: smarttourismchain.php:139
+#: smarttourismchain.php:156
+msgid "Daftar Booking"
+msgstr ""
+
+#: smarttourismchain.php:158
+msgid "Judul"
+msgstr ""
+
+#: smarttourismchain.php:159
+msgid "Tanggal"
+msgstr ""
+
+#: smarttourismchain.php:160
+msgid "TxHash"
+msgstr ""
+
+#: smarttourismchain.php:196
+msgid "Pengaturan SmartTourismChain"
+msgstr ""
+
+#: smarttourismchain.php:202
+msgid "Token Contract Address"
+msgstr ""
+
+#: smarttourismchain.php:208
+msgid "Token Contract ABI (Template Preview)"
+msgstr ""
+
+#: smarttourismchain.php:216
+msgid "Token Contract ABI (Custom, Optional)"
+msgstr ""
+
+#: smarttourismchain.php:218
+msgid "🔧 Gunakan shortcode [stc_generate_token] di halaman manapun untuk membuat token ERC-20 Anda secara instan. Setelah token berhasil dibuat, copy alamat kontraknya ke kolom Token Contract Address di bawah."
+msgstr ""
+
+#: smarttourismchain.php:221
+#: smarttourismchain.php:244
+msgid "Kolom ini tidak boleh kosong. Gunakan ABI di atas atau ABI versi Anda sendiri."
+msgstr ""
+
+#: smarttourismchain.php:228
+msgid "🛡️ Default STC Contract: biarkan terisi default jika ingin menggunakan kontrak resmi dari SmartTourismChain."
+msgstr ""
+
+#: smarttourismchain.php:234
+msgid "Booking Contract ABI (Template Preview)"
+msgstr ""
+
+#: smarttourismchain.php:242
+msgid "Booking Contract ABI (Custom, Optional)"
+msgstr ""
+
+#: templates/single-stc_booking.php:8
+#: views/form-booking.php:2
+msgid "Nama:"
+msgstr ""
+
+#: templates/single-stc_booking.php:11
+#: views/form-booking.php:5
+msgid "Hotel:"
+msgstr ""
+
+#: templates/single-stc_booking.php:14
+#: views/form-booking.php:8
+msgid "Tanggal:"
+msgstr ""
+
+#: templates/single-stc_booking.php:17
+msgid "TxHash:"
+msgstr ""
+
+#: templates/single-stc_booking.php:23
+msgid "QR Link:"
+msgstr ""
+
+#: templates/single-stc_booking.php:36
+msgid "—"
+msgstr ""
+
+#: templates/single-stc_booking.php:39
+msgid "Mode:"
+msgstr ""
+
+#: templates/single-stc_booking.php:42
+msgid "Timestamp:"
+msgstr ""
+
+#: views/form-booking.php:11
+msgid "Metode Pembayaran:"
+msgstr ""
+
+#: views/form-booking.php:12
+msgid "Off-Chain"
+msgstr ""
+
+#: views/form-booking.php:13
+msgid "On-Chain"
+msgstr ""
+
+#: views/form-booking.php:15
+msgid "Pesan Sekarang"
+msgstr ""

@@ -31,7 +31,7 @@ When you're ready, the same code can be migrated to mainnet or Layer 2 with just
 
 * On‑chain & off‑chain booking simulation (Ethereum Sepolia)
 * MetaMask wallet connection
-* Custom post type: stc_booking
+* Custom post type: stcdrk_booking
 * Shortcodes:
 [smartwisata_booking] – booking UI
 [stc_generate_token] – simple token generator demo

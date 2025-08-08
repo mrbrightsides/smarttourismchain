@@ -11,52 +11,68 @@ Plugin URI: https://smartourism.elpeef.com/
 Author URI: https://elpeef.com/
 Author: ELPEEF Dev Team
 
-SmartTourismChain adalah plugin WordPress open-source yang memungkinkan integrasi sistem reservasi wisata dengan smart contract berbasis blockchain Ethereum.
+SmartTourismChain is an open-source WordPress plugin that enables a blockchain-based booking system using Ethereum smart contracts.
 
 == Description ==
 
-SmartTourismChain dibuat untuk membantu pelaku wisata lokal mengotomatisasi proses pemesanan dan pencatatan transaksi dengan sistem yang transparan dan aman melalui teknologi smart contract.
+SmartTourismChain was built to help local tourism actors automate booking and transaction logging through a transparent and secure blockchain system.
 
-Fitur utama:
-* Reservasi langsung tanpa perantara
-* Simulasi transaksi di jaringan testnet Sepolia
-* Integrasi mudah ke WordPress melalui shortcode
-* Branding SmartTourismChain (versi free)
-* Kode terbuka, bisa dikembangkan lebih lanjut
+== Main features: ==
+
+* Direct booking without intermediaries
+* Transaction simulation on the Sepolia Ethereum testnet
+* Easy WordPress integration via shortcode
+* SmartTourismChain branding (free version)
+* Open-source and extensible
 
 == Installation ==
 
-1. Upload folder `SmartTourismChain` ke dalam direktori `/wp-content/plugins/`
-2. Aktifkan plugin melalui menu *Plugins* di WordPress
-3. Gunakan shortcode `[smartwisata_booking]` untuk menampilkan tombol pemesanan
+1. Upload the `SmartTourismChain` folder to the `/wp-content/plugins/` directory.
+2. Activate the plugin through the *Plugins* menu in WordPress.
+3. Use the shortcode `[smartwisata_booking]` to display the booking button.
 
 == Frequently Asked Questions ==
 
-= Apakah ini plugin resmi dari pemerintah? =
-Bukan. Ini adalah proyek open-source independen yang dikembangkan oleh tim Elpeef sebagai eksperimen digitalisasi pariwisata lokal.
+1. Is this plugin connected to real blockchain payments?
+No. The current version runs on Ethereum **Sepolia testnet**, allowing you to simulate transactions **safely and freely**.  
+You can deploy your own smart contract to **mainnet or Layer 2** when you're ready.
 
-= Apakah plugin ini bisa digunakan untuk transaksi real? =
-Versi ini hanya berjalan di jaringan **testnet Ethereum Sepolia** dan ditujukan untuk keperluan edukasi, simulasi, dan eksperimen sistem.
+2. Why should I install a testnet plugin?
+Because this plugin:  
+- Prepares you for **real blockchain adoption**
+- Enables **hands-on experience** with Web3 in tourism  
+- Can be **extended to production use** with your own token, contract, and payment flow
 
-= Apakah tersedia versi PRO? =
-Ya, versi PRO dengan fitur white-label dan API lanjutan tersedia di https://smartourism.elpeef.com/
+3. Can I use my own smart contract?
+Yes. The system is flexible. You can insert your own smart contract address and ABI for full customization.
+
+4. Is there a PRO version?
+Yes, a PRO version with **white-label features**, **API access**, and **real token integration** is available at https://smartourism.elpeef.com
+
+== External Dependencies ==
+
+This plugin uses the following external JavaScript libraries via CDN:
+* `ethers.js` from JSDelivr (https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js)
+* `qrcode.min.js` from Cloudflare (https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js)
+
+These libraries are essential to support wallet connection (MetaMask) and QR code generation functionalities. If required by the plugin repository guidelines, these files can be bundled locally.
 
 == Screenshots ==
 
-1. Tampilan tombol booking
-2. Popup koneksi dompet MetaMask
-3. Simulasi transaksi testnet
+1. Booking button interface
+2. MetaMask wallet connection popup
+3. Transaction simulation on testnet
 
 == Changelog ==
 
 = 1.0.0 =
-* Rilis awal plugin SmartTourismChain versi gratis
-* Mendukung reservasi berbasis smart contract testnet
+* Initial release of SmartTourismChain plugin (free version)
+* Supports smart contract-based reservation (testnet only)
 
 == Upgrade Notice ==
 
 = 1.0.0 =
-Versi awal. Harap backup sebelum upgrade di masa mendatang.
+Initial version. Please backup your site before upgrading in future releases.
 
 == License ==
 
@@ -65,4 +81,6 @@ SmartTourismChain is released under the GNU GPL v3 license.
 == Credits ==
 
 SmartTourismChain is maintained by [Khudri](https://profiles.wordpress.org/khudri) and the [ELPEEF Dev Team](https://elpeef.com).  
-This plugin is part of the [RANTAI](https://rantai.elpeef.com) (Riset Amanah Teknologi dan Integrasi) initiative to promote Web3 adoption in the tourism sector.
+This plugin is part of the [RANTAI](https://rantai.elpeef.com) (Trusted Research for Technology and Integration) initiative to promote Web3 adoption in the tourism sector.
+
+Last updated: 2025-08-08

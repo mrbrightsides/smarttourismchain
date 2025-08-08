@@ -15,6 +15,13 @@
  */
  
 require_once plugin_dir_path(__FILE__) . 'includes/template-loader.php';
+// === Default Booking Contract Address ===
+function stc_set_default_booking_address() {
+    if (get_option('stc_booking_contract_address') === false) {
+        update_option('stc_booking_contract_address', '0x4a9bd7A7f86D55855cd08c49A3f702E19ec98bFf');
+    }
+}
+register_activation_hook(__FILE__, 'stc_set_default_booking_address');
 add_filter('template_include', 'stc_booking_custom_template');
 
 function stc_booking_custom_template($template) {
@@ -127,7 +134,7 @@ function stc_add_admin_menu() {
 );
 
     add_submenu_page(
-    'smartwisatachain',
+    'smarttourismchain',
     'Daftar Booking',
     'Daftar Booking',
     'manage_options',
@@ -170,6 +177,14 @@ function stc_register_settings() {
 }
 add_action('admin_init', 'stc_register_settings');
 require_once plugin_dir_path(__FILE__) . 'includes/generate-token-form.php';
+add_action('admin_init', 'stc_set_booking_default_fallback');
+function stc_set_booking_default_fallback() {
+    $key = 'stc_booking_contract_address';
+    if (get_option($key) === '') {
+        update_option($key, '0x4a9bd7A7f86D55855cd08c49A3f702E19ec98bFf');
+    }
+}
+
 
 function stc_settings_page() { ?>
     <div class="wrap">
@@ -194,14 +209,18 @@ function stc_settings_page() { ?>
                 </tr>
                 <tr valign="top">
                     <th scope="row">Token Contract ABI (Custom, Optional)</th>
+                    <p>
+    🔧 Gunakan shortcode <code>[stc_generate_token]</code> di halaman manapun untuk membuat token ERC-20 Anda secara instan. Setelah token berhasil dibuat, copy alamat kontraknya ke kolom Token Contract Address di bawah.
+</p>
+
                     <td>
-                        <textarea name="stc_contract_abi" rows="10" style="width: 100%;" placeholder="Kolom ini tidak boleh kosong. Gunakan ABI di atas atau ABI Anda sendiri."><?php
+                        <textarea name="stc_contract_abi" rows="10" style="width: 100%;" placeholder="Kolom ini tidak boleh kosong. Gunakan ABI di atas atau ABI versi Anda sendiri."><?php
                             echo esc_textarea(get_option('stc_contract_abi'));
                         ?></textarea>
                     </td>
                 </tr>
                 <tr valign="top">
-                    <th scope="row">Booking Contract Address</th>
+                    <th scope="row">🛡️ Default STC Contract: biarkan terisi default jika ingin menggunakan kontrak resmi dari SmartTourismChain.</th>
                     <td>
                         <input type="text" name="stc_booking_contract_address" value="<?php echo esc_attr(get_option('stc_booking_contract_address')); ?>" style="width: 100%;" />
                     </td>
@@ -217,7 +236,7 @@ function stc_settings_page() { ?>
                 <tr valign="top">
                     <th scope="row">Booking Contract ABI (Custom, Optional)</th>
                     <td>
-                        <textarea name="stc_booking_contract_abi" rows="10" style="width: 100%;" placeholder="Kolom ini tidak boleh kosong. Gunakan ABI di atas atau ABI Anda sendiri."><?php
+                        <textarea name="stc_booking_contract_abi" rows="10" style="width: 100%;" placeholder="Kolom ini tidak boleh kosong. Gunakan ABI di atas atau ABI versi Anda sendiri."><?php
                             echo esc_textarea(get_option('stc_booking_contract_abi'));
                         ?></textarea>
                     </td>

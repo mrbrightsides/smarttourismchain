@@ -119,6 +119,6 @@ SmartTourismChain is released under the GNU GPL v3 license – see https://www.g
 SmartTourismChain is maintained by [Khudri](https://profiles.wordpress.org/khudri) and the [ELPEEF Dev Team](https://elpeef.com).  
 This plugin is part of the [RANTAI](https://rantai.elpeef.com) (Trusted Research for Technology and Integration) initiative to promote Web3 adoption in the tourism sector.
 
-[📄 Documentation](https://smartourism.elpeef.com/docs) | [🔧 GitHub Repo](https://github.com/elpeef/smartwisatachain) | [🧪 Try Demo](https://smartourism.elpeef.com/pesan-sekarang)
+[📄 Documentation](https://smartourism.elpeef.com/docs) | [🔧 GitHub Repo](https://github.com/elpeef/smartwisatachain) | [🧪 Try Demo](https://smartourism.elpeef.com/simulasi)
 
 Last updated: 2025-08-08

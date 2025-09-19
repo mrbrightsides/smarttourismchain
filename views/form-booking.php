@@ -1,4 +1,4 @@
-<form id="stcdrk-booking-form">
+<form id="stc-booking-form">
     <label><?php esc_html_e( 'Nama:', 'smarttourismchain' ); ?></label><br>
     <input type="text" id="nama" name="nama" required><br>
 

@@ -25,47 +25,19 @@ With this plugin, you can:
 
 When you're ready, the same code can be migrated to mainnet or Layer 2 with just a few tweaks
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/bGkjrdNKCPg?si=vypoC5LTF_TPHg1P" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
 == Main features: ==
 
-* On‑chain & off‑chain booking simulation (Ethereum Sepolia)
-* MetaMask wallet connection
-* Custom post type: stcdrk_booking
-* Shortcodes:
-[smartwisata_booking] – booking UI
-[stc_generate_token] – simple token generator demo
-* QR + tx hash display for transparency
-* Admin panel: contract address & ABI (template included)
-* Clean, lightweight, extensible code (starter kit for production builds)
-
-== What this plugin does NOT do (by design) ==
-
-❌ No real/mainnet payments
-❌ No automatic WooCommerce integration
-❌ No contract deployment from WP admin (security & WP.org policy)
-
-== Who is it for? ==
-
-Universities, labs, bootcamps
-
-Startup prototypes / PoCs
-
-Tourism operators exploring Web3 readiness
-
-Devs who want a WordPress ↔ Web3 starter kit
+* Direct booking without intermediaries
+* Transaction simulation on the Sepolia Ethereum testnet
+* Easy WordPress integration via shortcode
+* SmartTourismChain branding (free version)
+* Open-source and extensible
 
 == Installation ==
 
 1. Upload the `SmartTourismChain` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the *Plugins* menu in WordPress.
 3. Use the shortcode `[smartwisata_booking]` to display the booking button.
-
-== Getting Started (quick) ==
-
-* Install MetaMask and switch to Sepolia
-* Get test ETH (faucet) → try a booking → view txHash + QR
-* Check SmartTourismChain → Booking List in WP Admin
 
 == Frequently Asked Questions ==
 
@@ -95,9 +67,9 @@ These libraries are essential to support wallet connection (MetaMask) and QR cod
 
 == Screenshots ==
 
-1. Booking button interface (screenshot-1.png)
-2. MetaMask wallet connection popup (screenshot-2.png)
-3. Transaction simulation on testnet (screenshot-3.png)
+1. Booking button interface
+2. MetaMask wallet connection popup
+3. Transaction simulation on testnet
 
 == Changelog ==
 
@@ -112,13 +84,11 @@ Initial version. Please backup your site before upgrading in future releases.
 
 == License ==
 
-SmartTourismChain is released under the GNU GPL v3 license – see https://www.gnu.org/licenses/gpl-3.0.html
+SmartTourismChain is released under the GNU GPL v3 license.
 
 == Credits ==
 
 SmartTourismChain is maintained by [Khudri](https://profiles.wordpress.org/khudri) and the [ELPEEF Dev Team](https://elpeef.com).  
 This plugin is part of the [RANTAI](https://rantai.elpeef.com) (Trusted Research for Technology and Integration) initiative to promote Web3 adoption in the tourism sector.
-
-[📄 Documentation](https://smartourism.elpeef.com/docs) | [🔧 GitHub Repo](https://github.com/elpeef/smartwisatachain) | [🧪 Try Demo](https://smartourism.elpeef.com/simulasi)
 
 Last updated: 2025-08-08

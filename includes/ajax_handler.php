@@ -5,10 +5,10 @@ if (!defined('ABSPATH')) {
 }
 
 // === Handler untuk booking off-chain ===
-add_action('wp_ajax_stcdrk_offchain', 'handle_stcdrk_offchain');
-add_action('wp_ajax_nopriv_stcdrk_offchain', 'handle_stcdrk_offchain');
+add_action('wp_ajax_stc_offchain', 'handle_stc_offchain');
+add_action('wp_ajax_nopriv_stc_offchain', 'handle_stc_offchain');
 
-function handle_stcdrk_offchain() {
+function handle_stc_offchain() {
     $nama    = isset($_POST['nama']) ? sanitize_text_field($_POST['nama']) : '';
     $hotel   = isset($_POST['hotel']) ? sanitize_text_field($_POST['hotel']) : '';
     $tanggal = isset($_POST['tanggal']) ? sanitize_text_field($_POST['tanggal']) : '';
@@ -28,10 +28,10 @@ function handle_stcdrk_offchain() {
     $booking_id = 'OFF-' . time();
     $timestamp = current_time('mysql');
 
-    // Simpan ke post_type: stcdrk_booking
+    // Simpan ke post_type: stc_booking
     $post_id = wp_insert_post(array(
         'post_title' => "$booking_id – $nama",
-        'post_type'   => 'stcdrk_booking',
+        'post_type'   => 'stc_booking',
         'post_status' => 'publish',
     ));
 
